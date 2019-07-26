@@ -8,9 +8,11 @@ public class ParsingUtils {
     public static String nextValidJson(List<String> lines, Integer startIndex) {
         StringBuilder res = new StringBuilder();
 
-        for (int index = startIndex + 1; !lines.get(index).startsWith("}"); ++index) {
-            res.append(lines.get(index));
-        }
+        IntStream
+                .range(startIndex + 1, lines.size())
+                .sequential()
+                .takeWhile(i -> !lines.get(i).startsWith("}"))
+                .forEach(q -> res.append(lines.get(q)));
 
         return res.toString() + "}";
     }

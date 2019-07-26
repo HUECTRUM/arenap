@@ -17,7 +17,6 @@ public class Test {
     @Autowired
     private DraftDataParser parser;
 
-
     @EventListener(ApplicationReadyEvent.class)
     public void test() {
         List<DraftSelectionImportDto> selectionImportDtos = parser.getSelectionDtos("D:\\UTC_Log - 26.07.2019 22.23.21 - 1.htm");
