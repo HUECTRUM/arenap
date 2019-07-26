@@ -9,24 +9,24 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.function.Function;
 
-import static com.meh.utils.JsonUtils.deserlialize;
+import static com.meh.utils.JsonUtils.deserialize;
 import static com.meh.utils.ParsingUtils.nextValidJson;
 import static com.meh.utils.StreamUtils.mapList;
 
 @Component
 public class DraftDataParser {
     @Autowired
-    private FileParser fileParser;
+    private StartingLinesSelector startingLinesSelector;
     @Autowired
     private FileReader reader;
 
     public List<DraftSelectionImportDto> getSelectionDtos(String path) {
-        Function<List<String>, List<Integer>> indSelection = lines -> fileParser.selectionLines(lines);
+        Function<List<String>, List<Integer>> indSelection = lines -> startingLinesSelector.selectionLines(lines);
         return parseJsonDataFromFile(path, indSelection, DraftSelectionImportDto.class);
     }
 
     public List<DraftPickImportDto> getPickDtos(String path) {
-        Function<List<String>, List<Integer>> indSelection = lines -> fileParser.pickLines(lines);
+        Function<List<String>, List<Integer>> indSelection = lines -> startingLinesSelector.pickLines(lines);
         return parseJsonDataFromFile(path, indSelection, DraftPickImportDto.class);
     }
 
@@ -36,6 +36,6 @@ public class DraftDataParser {
         return mapList(mapList(
                 indSelection.apply(lines),
                 line -> nextValidJson(lines, line)),
-                json -> deserlialize(json, clazz));
+                json -> deserialize(json, clazz));
     }
 }
