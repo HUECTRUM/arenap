@@ -5,8 +5,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ParsingUtils {
-
-
     public static String nextValidJson(List<String> lines, Integer startIndex) {
         StringBuilder res = new StringBuilder();
 

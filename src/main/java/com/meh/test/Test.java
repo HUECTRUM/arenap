@@ -20,9 +20,9 @@ public class Test {
 
     @EventListener(ApplicationReadyEvent.class)
     public void test() {
-        List<DraftSelectionImportDto> selectionImportDtos = parser.getSelectionDtos("E:\\UTC_Log - 7-12-2019 10.07.54 PM - 1.htm");
+        List<DraftSelectionImportDto> selectionImportDtos = parser.getSelectionDtos("D:\\UTC_Log - 26.07.2019 22.23.21 - 1.htm");
         log.info("Selection dtos {}", selectionImportDtos);
-        List<DraftPickImportDto> pickImportDtos = parser.getPickDtos("E:\\UTC_Log - 7-12-2019 10.07.54 PM - 1.htm");
+        List<DraftPickImportDto> pickImportDtos = parser.getPickDtos("D:\\UTC_Log - 26.07.2019 22.23.21 - 1.htm");
         log.info("Pick dtos {}", pickImportDtos);
     }
 }
