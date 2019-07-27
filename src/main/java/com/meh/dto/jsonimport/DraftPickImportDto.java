@@ -14,4 +14,8 @@ public class DraftPickImportDto {
     private String method;
     private DraftPickParamsDto params;
     private String id;
+
+    public String getDraftId() {
+        return params.getDraftId();
+    }
 }
