@@ -1,9 +1,13 @@
 package com.meh.service;
 
+import com.meh.dto.response.DraftDataResponse;
 import com.meh.entity.DraftData;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface DraftDataService {
-    List<DraftData> toDraftData(String path);
+    List<DraftData> toDraftData(MultipartFile file);
+
+    DraftDataResponse getDraftData(MultipartFile file);
 }

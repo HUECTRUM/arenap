@@ -8,6 +8,7 @@ import com.meh.parser.internalparsing.StartingLinesSelector;
 import com.meh.reader.FileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.function.Function;
@@ -28,31 +29,32 @@ public class JsonArenaDraftDataParser implements DraftDataParser {
     private JsonFileParser fileParser;
 
     @Override
-    public PlainParsedDraftData getParsedData(String path) {
+    public PlainParsedDraftData getParsedData(MultipartFile file) {
         return new PlainParsedDraftData(
-                filterList(getSelectionDtos(path), s -> !s.getDraftStatus().equals(DRAFT_COMPLETE_STATUS)),
-                getPickDtos(path)
+                filterList(getSelectionDtos(file), s -> !s.getDraftStatus().equals(DRAFT_COMPLETE_STATUS)),
+                getPickDtos(file)
         );
     }
 
-    private List<DraftSelectionImportDto> getSelectionDtos(String path) {
+    private List<DraftSelectionImportDto> getSelectionDtos(MultipartFile file) {
         return parseJsonDataFromFile(
-                path,
+                file,
                 lines -> startingLinesSelector.selectionLines(lines),
                 DraftSelectionImportDto.class
         );
     }
 
-    private List<DraftPickImportDto> getPickDtos(String path) {
+    private List<DraftPickImportDto> getPickDtos(MultipartFile file) {
         return parseJsonDataFromFile(
-                path,
+                file,
                 lines -> startingLinesSelector.pickLines(lines),
                 DraftPickImportDto.class
         );
     }
 
-    private <T> List<T> parseJsonDataFromFile(String path, Function<List<String>, List<Integer>> indSelection, Class<T> clazz) {
-        List<String> lines = reader.readFile(path);
+    private <T> List<T> parseJsonDataFromFile(
+            MultipartFile file, Function<List<String>, List<Integer>> indSelection, Class<T> clazz) {
+        List<String> lines = reader.readFile(file);
 
         return mapList(mapList(
                 indSelection.apply(lines),
