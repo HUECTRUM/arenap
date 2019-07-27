@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.function.Function;
 
 import static com.meh.utils.JsonUtils.deserialize;
+import static com.meh.utils.StreamUtils.filterList;
 import static com.meh.utils.StreamUtils.mapList;
 
 @Component
 public class JsonArenaDraftDataParser implements DraftDataParser {
+    private static final String DRAFT_COMPLETE_STATUS = "Draft.Complete";
+
     @Autowired
     private StartingLinesSelector startingLinesSelector;
     @Autowired
@@ -26,7 +29,10 @@ public class JsonArenaDraftDataParser implements DraftDataParser {
 
     @Override
     public PlainParsedDraftData getParsedData(String path) {
-        return new PlainParsedDraftData(getSelectionDtos(path), getPickDtos(path));
+        return new PlainParsedDraftData(
+                filterList(getSelectionDtos(path), s -> !s.getDraftStatus().equals(DRAFT_COMPLETE_STATUS)),
+                getPickDtos(path)
+        );
     }
 
     private List<DraftSelectionImportDto> getSelectionDtos(String path) {
