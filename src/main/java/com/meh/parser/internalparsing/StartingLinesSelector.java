@@ -1,4 +1,4 @@
-package com.meh.parser;
+package com.meh.parser.internalparsing;
 
 import org.springframework.stereotype.Component;
 
