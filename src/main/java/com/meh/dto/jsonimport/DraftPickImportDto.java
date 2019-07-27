@@ -1,6 +1,7 @@
 package com.meh.dto.jsonimport;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.meh.datacombiner.draftid.PackPickKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,11 @@ public class DraftPickImportDto {
     private DraftPickParamsDto params;
     private String id;
 
-    public String getDraftId() {
-        return params.getDraftId();
+    public PackPickKey getPackPickKey() {
+        return new PackPickKey(
+                params.getDraftId(),
+                Integer.parseInt(params.getPackNumber()),
+                Integer.parseInt(params.getPickNumber())
+        );
     }
 }

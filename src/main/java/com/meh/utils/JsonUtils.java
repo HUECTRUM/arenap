@@ -9,7 +9,7 @@ public class JsonUtils {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     @SneakyThrows
-    public static  <T> T deserialize(String str, Class<T> clazz) {
+    public static <T> T deserialize(String str, Class<T> clazz) {
         return MAPPER.readValue(str, clazz);
     }
 }

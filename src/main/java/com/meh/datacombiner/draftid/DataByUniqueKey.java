@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Data
 @AllArgsConstructor
-public class DataByDraftId {
-    private Map<String, DraftPickImportDto> picks;
-    private Map<String, DraftSelectionImportDto> selections;
+public class DataByUniqueKey {
+    private Map<PackPickKey, DraftPickImportDto> picks;
+    private Map<PackPickKey, DraftSelectionImportDto> selections;
 }

@@ -1,6 +1,7 @@
 package com.meh.dto.jsonimport;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.meh.datacombiner.draftid.PackPickKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,4 +25,8 @@ public class DraftSelectionImportDto {
     private List<Integer> pickedCards;
 
     private double requestUnits;
+
+    public PackPickKey getPackPickKey() {
+        return new PackPickKey(draftId, packNumber, pickNumber);
+    }
 }
