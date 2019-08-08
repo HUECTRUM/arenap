@@ -16,7 +16,7 @@ public class DraftDataController {
     private DraftDataService service;
 
     @RequestMapping(path = "/draft", method = POST)
-    public DraftDataResponse getDraftData(@RequestParam("file")MultipartFile file) {
+    public DraftDataResponse getDraftData(@RequestParam("file") MultipartFile file) {
         return service.getDraftData(file);
     }
 }

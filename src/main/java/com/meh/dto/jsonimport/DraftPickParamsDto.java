@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DraftPickParamsDto {
-    private String draftId;
-    private String cardId;
-    private String packNumber;
-    private String pickNumber;
+    public String draftId;
+    public String cardId;
+    public String packNumber;
+    public String pickNumber;
 }

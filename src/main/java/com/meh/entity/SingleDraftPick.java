@@ -22,12 +22,12 @@ public class SingleDraftPick {
     public static SingleDraftPick fromJsonData(DraftPickImportDto pick, DraftSelectionImportDto selection) {
         return SingleDraftPick
                 .builder()
-                .draftId(selection.getDraftId())
-                .packNumber(selection.getPackNumber())
-                .pickNumber(selection.getPickNumber())
-                .alreadyPicked(selection.getPickedCards())
-                .options(selection.getDraftPack())
-                .pickedCard(Integer.parseInt(pick.getParams().getCardId()))
+                .draftId(selection.draftId)
+                .packNumber(selection.packNumber)
+                .pickNumber(selection.pickNumber)
+                .alreadyPicked(selection.pickedCards)
+                .options(selection.draftPack)
+                .pickedCard(Integer.parseInt(pick.params.cardId))
                 .build();
     }
 }

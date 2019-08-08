@@ -11,16 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DraftPickImportDto {
-    private String jsonrpc;
-    private String method;
-    private DraftPickParamsDto params;
-    private String id;
+    public String jsonrpc;
+    public String method;
+    public DraftPickParamsDto params;
+    public String id;
 
     public PackPickKey getPackPickKey() {
         return new PackPickKey(
-                params.getDraftId(),
-                Integer.parseInt(params.getPackNumber()),
-                Integer.parseInt(params.getPickNumber())
+                params.draftId,
+                Integer.parseInt(params.packNumber),
+                Integer.parseInt(params.pickNumber)
         );
     }
 }

@@ -13,18 +13,18 @@ import java.util.List;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DraftSelectionImportDto {
-    private String playerId;
-    private String eventName;
-    private String draftId;
-    private String draftStatus;
+    public String playerId;
+    public String eventName;
+    public String draftId;
+    public String draftStatus;
 
-    private int packNumber;
-    private int pickNumber;
+    public int packNumber;
+    public int pickNumber;
 
-    private List<Integer> draftPack;
-    private List<Integer> pickedCards;
+    public List<Integer> draftPack;
+    public List<Integer> pickedCards;
 
-    private double requestUnits;
+    public double requestUnits;
 
     public PackPickKey getPackPickKey() {
         return new PackPickKey(draftId, packNumber, pickNumber);

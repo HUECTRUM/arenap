@@ -12,6 +12,6 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class PlainParsedDraftData {
-    List<DraftSelectionImportDto> selections;
-    List<DraftPickImportDto> picks;
+    public List<DraftSelectionImportDto> selections;
+    public List<DraftPickImportDto> picks;
 }
