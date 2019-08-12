@@ -1,5 +1,6 @@
 package com.meh.dto.response;
 
+import com.meh.dto.response.art.ArtReplacer;
 import com.meh.entity.DraftData;
 import com.meh.entity.SingleDraftPick;
 import org.springframework.beans.factory.annotation.Autowired;

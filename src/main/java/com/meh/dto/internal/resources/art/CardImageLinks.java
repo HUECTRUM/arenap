@@ -9,12 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CardArtDataDto {
-    public Integer id;
-    public Integer artid;
-    public CardImageLinks images;
-
-    public static CardArtDataDto empty() {
-        return new CardArtDataDto();
-    }
+public class CardImageLinks {
+    public String small;
+    public String normal;
+    public String large;
 }

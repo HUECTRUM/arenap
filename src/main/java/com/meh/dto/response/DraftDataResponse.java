@@ -9,5 +9,5 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class DraftDataResponse {
-    List<DraftData> draftData;
+    public List<DraftData> draftData;
 }

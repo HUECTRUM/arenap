@@ -1,5 +1,6 @@
-package com.meh.dto.response;
+package com.meh.dto.response.art;
 
+import com.meh.dto.response.DraftDataResponse;
 import com.meh.entity.DraftData;
 import com.meh.service.ArtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
