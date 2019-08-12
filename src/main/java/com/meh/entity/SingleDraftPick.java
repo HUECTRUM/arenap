@@ -12,12 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class SingleDraftPick {
-    private String draftId;
-    private int packNumber;
-    private int pickNumber;
-    private List<Integer> alreadyPicked;
-    private List<Integer> options;
-    private Integer pickedCard;
+    public String draftId;
+    public int packNumber;
+    public int pickNumber;
+    public List<Integer> alreadyPicked;
+    public List<Integer> options;
+    public Integer pickedCard;
 
     public static SingleDraftPick fromJsonData(DraftPickImportDto pick, DraftSelectionImportDto selection) {
         return SingleDraftPick
