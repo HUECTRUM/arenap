@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class DraftData {
-    private String draftId;
-    private List<SingleDraftPick> picks;
+    public String draftId;
+    public List<SingleDraftPick> picks;
 }

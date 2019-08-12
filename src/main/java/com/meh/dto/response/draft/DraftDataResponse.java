@@ -1,6 +1,5 @@
-package com.meh.dto.response;
+package com.meh.dto.response.draft;
 
-import com.meh.entity.DraftData;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,5 +8,5 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class DraftDataResponse {
-    public List<DraftData> draftData;
+    public List<DraftDataWithArtDetails> draftData;
 }

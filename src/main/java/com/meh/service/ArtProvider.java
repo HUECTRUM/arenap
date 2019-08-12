@@ -1,9 +1,9 @@
 package com.meh.service;
 
-import com.meh.entity.SingleDraftPick;
+import java.util.function.Function;
 
 public interface ArtProvider {
     Integer getCardArtId(Integer cardId);
 
-    void replacePickArts(SingleDraftPick pick);
+    Function<Integer, String> artReplacer();
 }

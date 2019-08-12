@@ -1,8 +1,8 @@
 package com.meh.service.impl;
 
 import com.meh.datacombiner.DraftDataCombiner;
-import com.meh.dto.response.DraftDataResponse;
 import com.meh.dto.response.DraftResponseMapper;
+import com.meh.dto.response.draft.DraftDataResponse;
 import com.meh.entity.DraftData;
 import com.meh.parser.JsonArenaDraftDataParser;
 import com.meh.service.DraftDataService;

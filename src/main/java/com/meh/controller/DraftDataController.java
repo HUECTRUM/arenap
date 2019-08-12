@@ -1,6 +1,6 @@
 package com.meh.controller;
 
-import com.meh.dto.response.DraftDataResponse;
+import com.meh.dto.response.draft.DraftDataResponse;
 import com.meh.service.DraftDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
