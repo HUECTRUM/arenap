@@ -32,7 +32,7 @@ public class ScryfallApiArtProvider implements ArtProvider {
 
     @Override
     public Function<Integer, String> artReplacer() {
-        return id -> artData.cards.getOrDefault(valueOf(id), empty()).images.large;
+        return id -> artData.cards.getOrDefault(valueOf(id), empty()).images.normal;
     }
 
     @PostConstruct
